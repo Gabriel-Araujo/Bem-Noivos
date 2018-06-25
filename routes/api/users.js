@@ -7,6 +7,10 @@ const passport = require('passport');
 const User = require('../../models/User');
 const keys = require('../../config/keys');
 
+// Load input validation
+const validateRegisterInput = require('../../validation/register');
+const validateLoginInput = require('../../validation/login');
+
 const router = express.Router();
 
 // @route   GET api/users/test
@@ -18,9 +22,17 @@ router.get('/test', (req, res) => res.json({ msg: 'users works' }));
 // @desc    Register route
 // @access  Public
 router.post('/register', (req, res) => {
+  const { errors, isValid } = validateRegisterInput(req.body);
+
+  // Check Validation
+  if (!isValid) {
+    return res.status(400).json(errors);
+  }
+
   User.findOne({ email: req.body.email }).then(user => {
     if (user) {
-      return res.status(400).json({ email: 'Email já registrado' });
+      errors.email = 'Email já registrado';
+      return res.status(400).json(errors);
     }
 
     const avatar = gravatar.url(req.body.email, {
@@ -47,8 +59,6 @@ router.post('/register', (req, res) => {
           .catch(errNewUser => console.log(errNewUser));
       });
     });
-
-    return null;
   });
 });
 
@@ -56,8 +66,13 @@ router.post('/register', (req, res) => {
 // @desc    Login User | Returning JWT Token
 // @access  Public
 router.post('/login', (req, res) => {
-  const { email, password } = req.body;
+  const { errors, isValid } = validateLoginInput(req.body);
+  // Check Validation
+  if (!isValid) {
+    return res.status(400).json(errors);
+  }
 
+  const { email, password } = req.body;
   // Find User by email
   User.findOne({ email }).then(user => {
     // Check User
@@ -77,13 +92,15 @@ router.post('/login', (req, res) => {
               res.json({ success: true, token: `Bearer ${token}` });
             },
           );
+        } else {
+          errors.password = 'Senha incorreta';
+          return res.status(400).json(errors);
         }
-
-        return res.status(400).json({ password: 'Senha incorreta' });
       });
+    } else {
+      errors.email = 'Usuário não encontrado';
+      return res.status(404).json(errors);
     }
-
-    return res.status(404).json({ email: 'Usuário não encontrado' });
   });
 });
 
