@@ -4,9 +4,9 @@ const bodyParser = require('body-parser');
 const passport = require('passport');
 
 const users = require('./routes/api/users');
-const service = require('./routes/api/service');
+const services = require('./routes/api/services');
 const supplier = require('./routes/api/supplier');
-const category = require('./routes/api/category');
+const categories = require('./routes/api/categories');
 
 const app = express();
 
@@ -29,9 +29,9 @@ mongoose
 
 // Use Routes
 app.use('/api/users', users);
-app.use('/api/service', service);
+app.use('/api/services', services);
 app.use('/api/supplier', supplier);
-app.use('/api/category', category);
+app.use('/api/categories', categories);
 
 const port = process.env.PORT || 5000;
 
