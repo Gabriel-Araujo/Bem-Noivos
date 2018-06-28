@@ -6,8 +6,8 @@ class Login extends Component {
       <div>
         Login
       </div>
-    )
+    );
   }
-};
+}
 
 export default Login;
