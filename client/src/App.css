@@ -1,0 +1,85 @@
+img {
+  width: 100%;
+}
+
+.landing {
+  position: relative;
+  background: url('./img/showcase.jpg') no-repeat;
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  margin-top: -24px;
+  margin-bottom: -50px;
+}
+
+.landing-inner {
+  padding-top: 80px;
+}
+
+.dark-overlay {
+  background-color: rgba(0, 0, 0, 0.7);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.card-form {
+  opacity: 0.9;
+}
+
+.latest-profiles-img {
+  width: 40px;
+  height: 40px;
+}
+
+.form-control::placeholder {
+  color: #bbb !important;
+}
+
+/* ben noivo */
+.brand-bn-nav {
+  display: line-block;
+  text-indent: -9999px;
+  width: 30px;
+  height: 30px;
+  background: url('./img/brand-bn-nav.svg');
+  background-size: 30px 30px;
+}
+
+.brand-bn {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  text-indent: -9999px;
+  width: 130px;
+  height: 130px;
+  background: url('./img/brand-bn.svg');
+  background-size: 130px 130px;
+}
+
+.brand-font {
+  font-family: 'Sacramento', cursive;
+}
+
+.damion-font {
+  font-family: 'Damion', cursive;
+}
+
+.bg-pink-light {
+  background-color: #EE4777!important;
+}
+
+.bg-pink-base {
+  background-color: #EE2E5D!important;
+}
+
+hr.arabesco-light {
+  overflow: visible; /* For IE */
+  padding: 0;
+  border: none;
+  border-top: medium double #ccc;
+  color: #fff;
+  text-align: center;
+}
