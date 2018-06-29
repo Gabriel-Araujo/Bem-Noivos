@@ -67,6 +67,10 @@ img {
   font-family: 'Damion', cursive;
 }
 
+.cambo-font {
+  font-family: 'Cambo', cursive;
+}
+
 .bg-pink-light {
   background-color: #EE4777!important;
 }
@@ -82,4 +86,11 @@ hr.arabesco-light {
   border-top: medium double #ccc;
   color: #fff;
   text-align: center;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  -webkit-font-smoothing: antialiased;
+  font-family: 'Cambo', cursive;
 }

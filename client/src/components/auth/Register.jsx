@@ -22,12 +22,12 @@ class Register extends Component {
               <h1 className="display-4 text-center brand-font">
                 Registre-se
               </h1>
-              <p className="lead text-center">
+              <p className="lead text-center cambo-font">
                 O seu novo usuário
               </p>
               <form action="create-profile.html">
                 <div className="form-group">
-                  <small className="form-text lead">
+                  <small className="form-text lead cambo-font">
                     Nome
                   </small>
                   <input
