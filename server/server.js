@@ -2,6 +2,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const passport = require('passport');
+const morgan = require('morgan');
 
 const users = require('./routes/api/users');
 const services = require('./routes/api/services');
@@ -10,6 +11,9 @@ const categories = require('./routes/api/categories');
 const newsletter = require('./routes/api/newsletter');
 
 const app = express();
+
+// Middleware Logger Morgan
+app.use(morgan('short'));
 
 // Middleware body-parser
 app.use(bodyParser.urlencoded({ extended: false }));
