@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Redirect } from 'react-router-dom';
 import axios from 'axios';
 import classnames from 'classnames';
 
@@ -11,7 +12,7 @@ class Register extends Component {
       password: '',
       password2: '',
       errors: {},
-
+      redirect: false,
     };
 
     this.onChange = this.onChange.bind(this);
@@ -29,12 +30,16 @@ class Register extends Component {
     const newUser = { name, email, password, password2 };
 
     axios.post('/api/users/register', newUser)
-      .then(res => console.log(res.data))
+      .then(() => this.setState({ redirect: true }))
       .catch(err => this.setState({ errors: err.response.data }));
   }
 
   render() {
-    const { name, email, password, password2, errors } = this.state;
+    const { name, email, password, password2, errors, redirect } = this.state;
+
+    if (redirect) {
+      return <Redirect to="/" />;
+    }
 
     return (
       <div className="register">
