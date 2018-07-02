@@ -7,6 +7,7 @@ const users = require('./routes/api/users');
 const services = require('./routes/api/services');
 const supplier = require('./routes/api/supplier');
 const categories = require('./routes/api/categories');
+const newsletter = require('./routes/api/newsletter');
 
 const app = express();
 
@@ -32,6 +33,7 @@ app.use('/api/users', users);
 app.use('/api/services', services);
 app.use('/api/supplier', supplier);
 app.use('/api/categories', categories);
+app.use('/api/newsletter', newsletter);
 
 const port = process.env.PORT || 5000;
 

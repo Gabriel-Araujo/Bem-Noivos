@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 import classnames from 'classnames';
+import swal from 'sweetalert';
 import { AwesomeButton } from 'react-awesome-button';
 import 'react-awesome-button/dist/styles.css';
 
@@ -27,11 +28,24 @@ class Landing extends Component {
     const { email } = this.state;
     const newUser = { email };
 
-    console.log(email);
+    if (!email) {
+      swal('Quase lá', 'Faltou informar o seu e-mail', 'warning');
+      return;
+    }
 
     axios.post('/api/newsletter', newUser)
-      .then(res => console.log(res))
-      .catch(err => this.setState({ errors: err.response.data }));
+      .then(() => {
+        this.setState({ email: '' });
+        swal('Enviado!', 'Excelente, seu e-mail foi parar na lista nossas contatinhos!', 'success');
+      })
+      .catch(err => {
+        this.setState({ errors: err.response.data });
+        if (err.response.data.email) {
+          swal('Oops!', 'O e-mail informado tem algo estranho...', 'error');
+        } else {
+          swal('Oops!', 'Algo deu muito errado!', 'error');
+        }
+      });
   }
 
   render() {
@@ -49,7 +63,10 @@ class Landing extends Component {
                   Bem Noivos
                 </h1>
                 <h2 className="brand-font">
-                  Tudo para o dia mais feliz da sua vida
+                  Você vai encontrar aqui tudo para
+                </h2>
+                <h2 className="brand-font">
+                  o dia mais feliz da sua vida
                 </h2>
               </div>
             </div>
@@ -65,11 +82,6 @@ class Landing extends Component {
                       value={email}
                       onChange={this.onChange}
                     />
-                    { errors.email && (
-                      <div className="invalid-feedback">
-                        { errors.email }
-                      </div>
-                    )}
                   </div>
                   <AwesomeButton type="primary">
                     Quero ficar por dentro de tudo
