@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 import classnames from 'classnames';
+import { AwesomeButton } from 'react-awesome-button';
+import 'react-awesome-button/dist/styles.css';
 
 class Landing extends Component {
   constructor(props) {
@@ -37,7 +39,7 @@ class Landing extends Component {
     return (
       <div className="landing">
         <div className="dark-overlay landing-inner text-light">
-          <div className="container">
+          <div className="container col-md-6">
             <div className="row">
               <div className="col-md-12 text-center">
                 <Link className="brand-bn center-block" to="/">
@@ -54,10 +56,10 @@ class Landing extends Component {
             <div className="row">
               <div className="col-md-12 text-center">
                 <form onSubmit={this.onSubmit}>
-                  <div className="form-group">
+                  <div className="form-group text-center">
                     <input
                       type="email"
-                      className={classnames('form-control form-control-lg', { 'is-invalid': errors.email })}
+                      className={classnames('form-control form-control-lg text-center', { 'is-invalid': errors.email })}
                       placeholder="Seu e-mail"
                       name="email"
                       value={email}
@@ -69,9 +71,9 @@ class Landing extends Component {
                       </div>
                     )}
                   </div>
-                  <button type="submit" className="btn btn-lg btn-danger mr-2">
+                  <AwesomeButton type="primary">
                     Quero ficar por dentro de tudo
-                  </button>
+                  </AwesomeButton>
                 </form>
               </div>
             </div>

@@ -154,7 +154,7 @@ section.contact ul.list-social li.social-pinterest a:hover {
 .bg-social {
   background: #F8FAFC;
   background: -webkit-linear-gradient(#F8FAFC, #B8C2CC);
-  background: linear-gradient(#DAEF8FAFC1E7, #B8C2CC);
+  background: linear-gradient(#F8FAFC, #B8C2CC);
 }
 /* Social fim */
 
@@ -184,3 +184,31 @@ footer ul li a:hover, footer ul li a:focus, footer ul li a:active, footer ul li 
   text-decoration: none;
 }
 /* footer fim */
+
+/* button */
+.aws-btn {
+  --button-default-font-size: 22px !important;
+  --button-default-height: 51px;
+  --button-default-font-size: 14px;
+  --button-default-border-radius: 6px;
+  --button-horizontal-padding: 20px;
+  --button-raise-level: 4px;
+  --button-hover-pressure: 1;
+  --transform-speed: 0.175s;
+  --button-primary-color: #cc0033;
+  --button-primary-color-dark: #990000;
+  --button-primary-color-light: #ffffff;
+  --button-primary-color-hover: #990033;
+  --button-primary-border: none;
+  --button-secondary-color: #ffffff;
+  --button-secondary-color-dark: #990033;
+  --button-secondary-color-light: #cc0033;
+  --button-secondary-color-hover: #ffcccc;
+  --button-secondary-border: 2px solid #ff3366;
+  --button-anchor-color: #cc0033;
+  --button-anchor-color-dark: #990033;
+  --button-anchor-color-light: #ffffff;
+  --button-anchor-color-hover: #990000;
+  --button-anchor-border: none;
+}
+/* button fim*/
