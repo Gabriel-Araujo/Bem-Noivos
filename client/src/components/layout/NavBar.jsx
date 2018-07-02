@@ -9,7 +9,7 @@ class NavBar extends Component {
           <Link className="brand-bn-nav centered" to="/">
             Bem Noivos
           </Link>
-          <Link className="navbar-brand brand-font" to="/">
+          <Link className="navbar-brand damion-font" to="/">
             {' '}
             Bem Noivos
           </Link>

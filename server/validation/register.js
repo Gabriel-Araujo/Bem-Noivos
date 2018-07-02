@@ -33,6 +33,10 @@ module.exports = function validateRegisterInput(data) {
     errors.password = 'Senha não pode estar vazia';
   }
 
+  if (Validator.isEmpty(data.password2)) {
+    errors.password2 = 'Confirmação de senha não pode estar vazia';
+  }
+
   if (!Validator.equals(data.password, data.password2)) {
     errors.password2 = 'A confirmação da senha deve ser identica';
   }

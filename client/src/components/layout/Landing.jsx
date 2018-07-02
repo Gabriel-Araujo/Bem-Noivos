@@ -12,7 +12,7 @@ class Landing extends Component {
                 <Link className="brand-bn center-block" to="/">
                   Bem Noivos
                 </Link>
-                <h1 className="display-3 mb-4 brand-font">
+                <h1 className="display-3 mb-4 damion-font">
                   Bem Noivos
                 </h1>
                 <h2 className="brand-font">

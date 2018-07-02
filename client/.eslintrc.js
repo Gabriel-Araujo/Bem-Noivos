@@ -5,7 +5,14 @@ module.exports = {
       'arrow-parens': ['error', 'as-needed'],
       'no-param-reassign': ["error", { "props": false }],
       'object-curly-newline': ["error", { "multiline": true }],
+      "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
       "react/prefer-stateless-function": "off",
     },
-    extends: 'airbnb',
+    plugins: [
+      'jsx-a11y'
+    ],
+    extends: [
+      'airbnb',
+      'plugin:jsx-a11y/recommended',
+    ]
   };
