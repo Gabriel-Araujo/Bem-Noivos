@@ -63,10 +63,13 @@ class Landing extends Component {
                   Bem Noivos
                 </h1>
                 <h2 className="brand-font">
-                  Você vai encontrar aqui tudo para
+                  Você vai encontrar aqui
                 </h2>
                 <h2 className="brand-font">
-                  o dia mais feliz da sua vida
+                  tudo para o dia
+                </h2>
+                <h2 className="brand-font">
+                  mais feliz da sua vida
                 </h2>
               </div>
             </div>
@@ -84,7 +87,7 @@ class Landing extends Component {
                     />
                   </div>
                   <AwesomeButton type="primary">
-                    Quero ficar por dentro de tudo
+                    Quero ficar por dentro
                   </AwesomeButton>
                 </form>
               </div>
