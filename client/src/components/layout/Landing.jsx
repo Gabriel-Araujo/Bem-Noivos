@@ -36,7 +36,7 @@ class Landing extends Component {
     axios.post('/api/newsletter', newUser)
       .then(() => {
         this.setState({ email: '' });
-        swal('Enviado!', 'Excelente, seu e-mail foi parar na lista nossas contatinhos!', 'success');
+        swal('Enviado!', 'Excelente, seu e-mail foi parar na nossa lista de contatinhos!', 'success');
       })
       .catch(err => {
         this.setState({ errors: err.response.data });
