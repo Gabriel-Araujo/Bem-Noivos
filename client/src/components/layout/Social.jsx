@@ -12,12 +12,12 @@ export default () => (
       </h2>
       <ul className="list-inline list-social">
         <li className="list-inline-item social-instagram">
-          <a href="/">
+          <a href="http://www.instagram.com/bemnoivos">
             <i className="fab fa-instagram" />
           </a>
         </li>
         <li className="list-inline-item social-facebook">
-          <a href="http://www.facebook.com/bemnoivosmt">
+          <a href="http://www.facebook.com/bemnoivos">
             <i className="fab fa-facebook-f" />
           </a>
         </li>
