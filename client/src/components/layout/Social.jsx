@@ -22,7 +22,7 @@ export default () => (
           </a>
         </li>
         <li className="list-inline-item social-pinterest">
-          <a href="/">
+          <a href="https://br.pinterest.com/bemnoivos/">
             <i className="fab fa-pinterest" />
           </a>
         </li>

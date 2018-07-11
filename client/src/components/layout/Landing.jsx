@@ -62,15 +62,15 @@ class Landing extends Component {
                 <h1 className="display-3 mb-4 damion-font">
                   Bem Noivos
                 </h1>
-                <h2 className="brand-font">
+                <h3 className="brand-font">
                   Você vai encontrar aqui
-                </h2>
-                <h2 className="brand-font">
+                </h3>
+                <h3 className="brand-font">
                   tudo para o dia
-                </h2>
-                <h2 className="brand-font">
+                </h3>
+                <h3 className="brand-font">
                   mais feliz da sua vida
-                </h2>
+                </h3>
               </div>
             </div>
             <div className="row">
