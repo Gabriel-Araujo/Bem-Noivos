@@ -11,11 +11,26 @@ class Landing extends Component {
     super(props);
     this.state = {
       email: '',
+      country: '',
+      region: '',
+      city: '',
       errors: {},
     };
 
     this.onChange = this.onChange.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
+  }
+
+  componentDidMount() {
+    const IP_STACK_KEY = '930235a45fa2b37174e1f2b41923b91a';
+    axios.get(`http://api.ipstack.com/check?access_key=${IP_STACK_KEY}&fields=ip,country_code,country_code,region_code,city`)
+      .then(resp => {
+        this.setState({
+          country: resp.data.country_code,
+          region: resp.data.region_code,
+          city: resp.data.city,
+        });
+      });
   }
 
   onChange(e) {
@@ -25,8 +40,8 @@ class Landing extends Component {
   onSubmit(e) {
     e.preventDefault();
 
-    const { email } = this.state;
-    const newUser = { email };
+    const { email, country, region, city } = this.state;
+    const newUser = { email, country, region, city };
 
     if (!email) {
       swal('Quase lá', 'Faltou informar o seu e-mail', 'warning');
@@ -50,6 +65,7 @@ class Landing extends Component {
 
   render() {
     const { email, errors } = this.state;
+
     return (
       <div className="landing">
         <div className="dark-overlay landing-inner text-light">

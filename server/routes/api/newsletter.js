@@ -25,7 +25,12 @@ router.post('/', (req, res) => {
     return res.status(400).json(errors);
   }
 
-  const newEmail = new Newsletter({ email: req.body.email });
+  const newEmail = new Newsletter({
+    email: req.body.email,
+    country: req.body.country,
+    region: req.body.region,
+    city: req.body.city,
+  });
 
   newEmail.save().then(email => res.json(email));
 });
