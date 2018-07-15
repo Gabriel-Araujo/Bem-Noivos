@@ -11,12 +11,27 @@ class Register extends Component {
       email: '',
       password: '',
       password2: '',
+      country: '',
+      region: '',
+      city: '',
       errors: {},
       redirect: false,
     };
 
     this.onChange = this.onChange.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
+  }
+
+  componentDidMount() {
+    const IPSTACK_KEY = process.env.REACT_APP_IPSTACK_KEY;
+    axios.get(`http://api.ipstack.com/check?access_key=${IPSTACK_KEY}&fields=ip,country_code,country_code,region_code,city`)
+      .then(resp => {
+        this.setState({
+          country: resp.data.country_code,
+          region: resp.data.region_code,
+          city: resp.data.city,
+        });
+      });
   }
 
   onChange(e) {
@@ -26,8 +41,8 @@ class Register extends Component {
   onSubmit(e) {
     e.preventDefault();
 
-    const { name, email, password, password2 } = this.state;
-    const newUser = { name, email, password, password2 };
+    const { name, email, password, password2, country, region, city } = this.state;
+    const newUser = { name, email, password, password2, country, region, city };
 
     axios.post('/api/users/register', newUser)
       .then(() => this.setState({ redirect: true }))

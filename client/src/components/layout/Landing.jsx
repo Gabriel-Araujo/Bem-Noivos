@@ -22,8 +22,8 @@ class Landing extends Component {
   }
 
   componentDidMount() {
-    const IP_STACK_KEY = '930235a45fa2b37174e1f2b41923b91a';
-    axios.get(`http://api.ipstack.com/check?access_key=${IP_STACK_KEY}&fields=ip,country_code,country_code,region_code,city`)
+    const IPSTACK_KEY = process.env.REACT_APP_IPSTACK_KEY;
+    axios.get(`http://api.ipstack.com/check?access_key=${IPSTACK_KEY}&fields=ip,country_code,country_code,region_code,city`)
       .then(resp => {
         this.setState({
           country: resp.data.country_code,
